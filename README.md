@@ -1,6 +1,12 @@
 # py파일 생성기
 
-## generator_py.py
+## py_generator.py
+
+* 수정 내역
+
+  * 20230307
+
+    * refactoring: 커스터마이징을 더 쉽게
 
 * 개인이 문제를 풀때 py파일과 입력예시를 가져오기 위한 generator입니다.
 

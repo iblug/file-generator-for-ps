@@ -6,10 +6,33 @@ import requests, re
 from bs4 import BeautifulSoup
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
+# py파일 이름 # 커스터마이징
+def get_py_name():
+    py_name = f'{p_num}_{title_}.py'
+    return py_name
+
+# py파일 내용 # 커스터마이징
+def get_content():
+    py_content = (
+f'''# https://www.acmicpc.net/problem/{p_num}
+# {p_num} {title}
+import sys
+sys.stdin = open("{input_file}", "r")
+
+''')
+    return py_content
+
+# input파일 이름 # 커스터마이징
+def get_input_name():
+    input_name = (f'input_{p_num}.txt')
+    return input_name
+
+
 BRIGHT_RED = '\033[91m'
 BRIGHT_GREEN = '\033[92m'
 BRIGHT_END = '\033[0m'
 
+# main
 # 여러 문제 풀때를 위해 while씀(필요없다면 삭제)
 while True:
     p_num = input('>>> 문제 번호를 입력하세요. (입력이 없거나 0 입력시 종료)\n> ')
@@ -32,17 +55,15 @@ while True:
     # re라이브러리를 사용하여 파일명으로 불가능한 문자와 공백을 '_'로 바꿔줌(정규표현식)
     title_ = re.sub(r'[\\/*:?"<>| ]', '_', title)
 
-    py_file = f'{p_num}_{title_}.py' # .py파일 이름 # 커스텀
-    input_file = f'input_{p_num}.txt' # .txt파일 이름 # 커스텀
+    py_file = get_py_name()
+    input_file = get_input_name()
 
-    flag = 0
     # .py 생성
     # 이미 파일이 존재하면 덮어쓰기 방지
+    flag = 0
     try:
         with open(py_file, 'x', encoding='utf-8') as f:
-            f.write(f'# https://www.acmicpc.net/problem/{p_num}\n') # 파일 내용 커스텀
-            f.write(f'# {p_num} {title}\n')
-            f.write(f'import sys\nsys.stdin = open("input_{p_num}.txt", "r")\n')
+            f.write(get_content())
     except:
         print(BRIGHT_RED+'== 이미 py파일이 존재하므로 input.txt만 생성합니다. =='+BRIGHT_END)
         flag = 1
@@ -57,4 +78,3 @@ while True:
     else:
         print(BRIGHT_GREEN+f'++ {py_file} ++'+BRIGHT_END)
         print(BRIGHT_GREEN+f'++ {input_file} ++'+BRIGHT_END)
-    
