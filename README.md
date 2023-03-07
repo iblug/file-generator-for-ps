@@ -20,7 +20,11 @@
 ![06](image/06.png)
 * input.txt 파일
 
-## generator_py_for_study.py
+## for_study.py
+
+* 수정 내역
+
+  * 2.0 : 날짜를 계산하여 week폴더도 자동으로 생성.
 
 * 스터디 폴더를 만들기 위한 generator입니다.
 
@@ -28,7 +32,9 @@
 
 * `name` 부분을 자신의 이름으로 하드코딩으로 사용하셔도 됩니다.
 
-* 해당 week폴더 안에서 파일을 실행해 주세요.
+* 파일 실행 위치:
+  * 1.0: week 폴더 안에서
+  * 2.0: 스터디 폴더에서
 
 ![01](image/01.png)
 * 터미널
@@ -41,3 +47,5 @@
 * 스터디 history를 위한 text generator
 
 ![07](image/07.png)
+
+* 출력된 부분 복사

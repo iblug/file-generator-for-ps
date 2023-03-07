@@ -6,14 +6,8 @@ import requests, re
 from bs4 import BeautifulSoup
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
 
-BRIGHT_BLACK = '\033[90m'
 BRIGHT_RED = '\033[91m'
 BRIGHT_GREEN = '\033[92m'
-BRIGHT_YELLOW = '\033[93m'
-BRIGHT_BLUE = '\033[94m'
-BRIGHT_MAGENTA = '\033[95m'
-BRIGHT_CYAN = '\033[96m'
-BRIGHT_WHITE = '\033[97m'
 BRIGHT_END = '\033[0m'
 
 # 여러 문제 풀때를 위해 while씀(필요없다면 삭제)
